@@ -1,0 +1,8 @@
+{
+  "name": "js-further-learning",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:rahman95/js-further-learning.git",
+  "author": "Rahman Younus <rahman_95@live.co.uk>",
+  "license": "MIT"
+}
