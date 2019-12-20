@@ -61,3 +61,44 @@ for (let fastFood of fastFoodSet) {
 // Clearing all items in Set
 fastFoodSet.clear();
 console.log(fastFoodSet); // Set {}
+
+// WeakSets - [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet)
+// - WeakSets only accept objects and are not iterable
+// - They do not have a clear() method
+
+const user1 = {
+  name: "bob",
+  email: "bob@example.com"
+};
+
+const user2 = {
+  name: "tim",
+  email: "tim@example.com"
+};
+
+const user3 = {
+  name: "jay",
+  email: "jay@example.com"
+};
+
+const users = [user1, user2, user3];
+let usersWeakSet = new WeakSet(users);
+console.log(usersWeakSet); // WeakSet { [items unknown] }
+
+const hasUser1 = usersWeakSet.has(user1);
+console.log({ hasUser1 }); // { hasUser1: true }
+
+// Adding items to WeakSet
+const user4 = {
+  name: "lee",
+  email: "lee@example.com"
+};
+usersWeakSet.add(user4);
+
+// throws error if not object
+// usersWeakSet.add("user4"); // TypeError: Invalid value used in weak set
+
+// Clearing WeakSet
+// - Objects can only be deleted by setting them to null
+// - JS garbage collection will automatically free up memory allocated to the null object
+usersWeakSet = null;
